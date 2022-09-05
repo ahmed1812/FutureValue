@@ -1,0 +1,30 @@
+﻿@model FutureValue
+@{
+    Layout = null;
+    var culture = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+}
+
+<h1>Future value calculator</h1>
+
+<form asp-action="Index" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="MonthyInvestment"> Monthy Investment: </label>
+        <input asp-for="MonthyInvestment" />
+    </div>
+    <div>
+        <label asp-for="YearlyInter"> Yearly Inter : </label>
+        <input asp-for="YearlyInter" />
+    </div>
+    <div>
+        <label asp-for="Years"> Years : </label>
+        <input asp-for="Years" />
+    </div>
+
+    <div>
+        <label> Future value : </label>
+        <input value="@ViewBag.FV.ToString("C2", culture)" readonly />
+    </div>
+    <button type="submit">cal</button>
+    <a asp-action="Index">clear</a>
+</form>
